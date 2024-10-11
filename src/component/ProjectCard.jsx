@@ -3,7 +3,7 @@
 export function ProjectCard() {
   return (
     
-    <div className="bg-[#111] rounded-xl p-6 shadow-md text-white flex flex-col   items-start w-80">
+    <div className="bg-[#111] rounded-xl p-6 shadow-md text-white flex flex-col   items-start w-96">
     <div className="relative w-full  grid place-items-center mb-5">
       <img className="w-full h-auto object-cover rounded-lg" src="ecom.png" alt="E-commerce Project" />
       <a href="https://y" target="_blank" rel="noopener noreferrer" className="absolute top-2 right-2 w-8 h-8 bg-[#1A1A1A]  rounded-full flex items-center justify-center">
@@ -26,7 +26,7 @@ export function ProjectCard() {
 
 export function ProjectCard2() {
   return (
-    <div className="bg-[#111]  rounded-xl p-6 shadow-md text-white flex flex-col items-start w-80">
+    <div className="bg-[#111]  rounded-xl p-6 shadow-md text-white flex flex-col items-start w-96">
     <div className="relative w-full grid place-items-center mb-4">
       <img className="w-full h-auto object-cover rounded-lg" src="ecom.png" alt="E-commerce Project" />
       <a href="https://library-three-gilt.vercel.app" target="_blank" rel="noopener noreferrer" className="absolute top-2 right-2 w-8 h-8 bg-[#1A1A1A] rounded-full flex items-center justify-center">
@@ -35,12 +35,14 @@ export function ProjectCard2() {
         </svg>
       </a>
     </div>
-    <h2 className="font-bold text-xl mb-2 space-mono-regular">Resume project</h2>
-    <p className="text-sm text-gray-300 mb-4 space-mono-regular">Resume Builder is a user-friendly, free online resume builder designed to simplify the resume creation process. It ensures a seamless and stress-free experience in building standout resumes.</p>
+    <h2 className="font-bold text-xl mb-2 space-mono-regular">E-Commerce Library</h2>
+    <p className="text-sm text-gray-300 mb-4 space-mono-regular">A user-friendly e-commerce site showcasing my frontend skills. Built with Vite, React, Tailwind CSS, and JavaScript. It includes a product catalog, search, and shopping cart functionality.</p>
     <div className="flex flex-wrap gap-2">
+    <span className="text-xs px-2 py-1 rounded-full bg-pink-400 text-white">#Vite</span>
       <span className="text-xs px-2 py-1 rounded-full bg-blue-600 text-white">#React</span>
-      <span className="text-xs px-2 py-1 rounded-full bg-green-400 text-white">#Node.js</span>
+      <span className="text-xs px-2 py-1 rounded-full bg-green-400 text-white">#JavaScript</span>
       <span className="text-xs px-2 py-1 rounded-full bg-pink-400 text-white">#Tailwind</span>
+
     </div>
   </div>
   );

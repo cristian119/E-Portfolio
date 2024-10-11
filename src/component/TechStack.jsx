@@ -2,7 +2,13 @@ import { Fade } from "react-awesome-reveal";
 export function TechStack(){
   return(
     <div className="w-full flex flex-col items-center">
-    <Fade triggerOnce={true} cascade={true} damping={0.1} className="text-white text-4xl  mt-8 mb-4 text-center space-mono-regular" >Tech-Stack</Fade>
+<Fade triggerOnce={true} duration={3000}>
+  <p className="text-white text-4xl mt-20 mb-4 text-center space-mono-regular z-10">
+    <Fade cascade={true} damping={0.1} triggerOnce={true}>
+      Tech-Stack
+    </Fade>
+  </p>
+</Fade>
     <Fade triggerOnce={true} duration={3000} >
     <div className="grid grid-cols-3 xs:gap-4 xs:w-fit  gap-11 mt-4 space-mono-regular">
       {[
