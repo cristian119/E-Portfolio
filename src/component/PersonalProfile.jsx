@@ -69,9 +69,12 @@ export function PersonalProfile() {
                   <p className="text-gray-300 xs:text-[14px] mt-2 space-mono-regular">Interested in working together? Got a great idea for a project? Let's chat!</p>
                 </div>
               </div>
-              <button className="bg-[#1A202C] text-white hover:bg-[#2D3748] space-mono-regular font-bold py-2 px-4 rounded-lg w-full mt-6">
-                CONTACT ME
-              </button>
+             <a href="mailto:Cristian333ee@gmail.com" className="inline-block w-full">
+  <button className="bg-[#1A202C] text-white hover:bg-[#2D3748] space-mono-regular font-bold py-2 px-4 rounded-lg w-full mt-6">
+    CONTACT ME
+  </button>
+</a>
+
             </div>
           </div>
 
@@ -105,5 +108,7 @@ export function PersonalProfile() {
     </div>
   );
 }
+
+
 
 export default PersonalProfile;

@@ -5,6 +5,8 @@ body, html {
   width: 100%;
   overflow-x: hidden; /* Prevent horizontal scrolling */
   background-color: #050816;
+  scroll-behavior: smooth;
+
 }
 
 
@@ -90,6 +92,13 @@ body, html {
   animation: rocket-launch 3s ease-in-out forwards;
 }
 
+.flame-container {
+  position: absolute;
+  bottom: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 @keyframes rocket-launch {
   0% {
     transform: translateY(0);
@@ -104,40 +113,58 @@ body, html {
 
 .smoke-container {
   position: absolute;
-  bottom: -100px; /* Adjust this value to move the smoke closer to the rocket */
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  bottom: -130;
+  left: 0;
+  right: 0;
+  height: 100px;
+  overflow: hidden;
 }
 
-.smoke {
+.smoke-particle {
+  position: absolute;
+  bottom: 0;
   width: 10px;
   height: 10px;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 50%;
-  margin-top: 5px;
-  animation: smoke 1s ease-in-out infinite;
+  animation: rise 3s infinite ease-in;
 }
 
-.smoke:nth-child(2) {
-  animation-delay: 0.2s;
+@keyframes rise {
+  0% {
+    bottom: -10px;
+    opacity: 1;
+  }
+  100% {
+    bottom: 100px;
+    opacity: 0;
+  }
 }
 
-.smoke:nth-child(3) {
-  animation-delay: 0.4s;
-}
 
 @keyframes smoke {
   0% {
     transform: translateY(0) scale(1);
-    opacity: 1;
+    opacity: 0.8;
   }
   100% {
-    transform: translateY(-50px) scale(2);
+    transform: translateY(-100px) scale(2);
     opacity: 0;
   }
+}
+
+.navbar-visible {
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
+}
+
+.navbar-hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
+}
+
+.navbar-blur {
+  backdrop-filter: blur(10px);  
 }
 
 .container {
@@ -174,9 +201,8 @@ body, html {
 @media (max-width: 768px) {
   .container {
     max-width: 640px;
-    
-    
   }
+
   
 }
 

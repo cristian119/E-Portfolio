@@ -5,6 +5,9 @@ import { Tilt } from 'react-next-tilt';
 import { ProjectCard, ProjectCard2 } from './component/ProjectCard';
 import { PersonalProfile } from './component/PersonalProfile';
 import { TechStack } from './component/TechStack';
+import { Fade,Slide } from "react-awesome-reveal";
+
+
 
 (async () => {
   await loadStarsPreset(tsParticles);
@@ -114,19 +117,37 @@ function Loading({ onAnimationEnd }) {
   }, [onAnimationEnd]);
 
   return (
-    <div className="loading-container">
-      <div className="rocket-container">
-        <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" fill="currentColor" className="bi bi-rocket rocket" viewBox="0 0 16 16">
-          <path fill="white" d="M10.175 1.991c.81 1.312 1.583 3.43 1.778 6.819l1.5 1.83A2.5 2.5 0 0 1 14 12.202V15.5a.5.5 0 0 1-.9.3l-1.125-1.5c-.166-.222-.42-.4-.752-.57-.214-.108-.414-.192-.627-.282l-.196-.083C9.7 13.793 8.85 14 8 14s-1.7-.207-2.4-.635q-.101.044-.198.084c-.211.089-.411.173-.625.281-.332.17-.586.348-.752.57L2.9 15.8a.5.5 0 0 1-.9-.3v-3.298a2.5 2.5 0 0 1 .548-1.562l.004-.005L4.049 8.81c.197-3.323.969-5.434 1.774-6.756.466-.767.94-1.262 1.31-1.57a3.7 3.7 0 0 1 .601-.41A.55.55 0 0 1 8 0c.101 0 .17.027.25.064q.056.025.145.075c.118.066.277.167.463.315.373.297.85.779 1.317 1.537M9.5 6c0-1.105-.672-2-1.5-2s-1.5.895-1.5 2S7.172 8 8 8s1.5-.895 1.5-2"/>
-          <path fill="red" d="M8 14.5c.5 0 .999-.046 1.479-.139L8.4 15.8a.5.5 0 0 1-.8 0l-1.079-1.439c.48.093.98.139 1.479.139"/>
-        </svg>
-        <div className="smoke-container">
-          <div className="smoke"></div>
-          <div className="smoke"></div>
-          <div className="smoke"></div>
-        </div>
-      </div>
+<div className="loading-container">
+  <div className="rocket-container">
+    <svg xmlns="http://www.w3.org/2000/svg" width="384" height="384" fill="currentColor" className="bi bi-rocket rocket" viewBox="0 0 16 16">
+      <path fill="white" d="M10.175 1.991c.81 1.312 1.583 3.43 1.778 6.819l1.5 1.83A2.5 2.5 0 0 1 14 12.202V15.5a.5.5 0 0 1-.9.3l-1.125-1.5c-.166-.222-.42-.4-.752-.57-.214-.108-.414-.192-.627-.282l-.196-.083C9.7 13.793 8.85 14 8 14s-1.7-.207-2.4-.635q-.101.044-.198.084c-.211.089-.411.173-.625.281-.332.17-.586.348-.752.57L2.9 15.8a.5.5 0 0 1-.9-.3v-3.298a2.5 2.5 0 0 1 .548-1.562l.004-.005L4.049 8.81c.197-3.323.969-5.434 1.774-6.756.466-.767.94-1.262 1.31-1.57a3.7 3.7 0 0 1 .601-.41A.55.55 0 0 1 8 0c.101 0 .17.027.25.064q.056.025.145.075c.118.066.277.167.463.315.373.297.85.779 1.317 1.537M9.5 6c0-1.105-.672-2-1.5-2s-1.5.895-1.5 2S7.172 8 8 8s1.5-.895 1.5-2"/>
+      <path fill="red" d="M8 14.5c.5 0 .999-.046 1.479-.139L8.4 15.8a.5.5 0 0 1-.8 0l-1.079-1.439c.48.093.98.139 1.479.139"/>
+    </svg>
+    
+    <div className="flame-container">
+      <svg className="flames" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="150" height="150">
+        <path d="M50 80 Q30 50 50 20 Q70 50 50 80 Z" fill="orange" />
+        <path d="M50 80 Q40 60 50 40 Q60 60 50 80 Z" fill="yellow" />
+      </svg>
     </div>
+
+    <div className="smoke-container">
+      {[...Array(20)].map((_, i) => (
+        <div 
+          key={i} 
+          className="smoke-particle"
+          style={{
+            left: `${Math.random() * 100}%`,
+            animationDelay: `${Math.random() * 3}s`,
+            opacity: Math.random() * 0.5 + 0.1
+          }}
+        />
+      ))}
+    </div>
+  </div>
+</div>
+
+
   );
 }
 
@@ -137,6 +158,22 @@ function App() {
   const handleAnimationEnd = () => {
     setLoading(false);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollThreshold = 200; // Adjust this value to set when the navbar should appear
+      if (window.scrollY > scrollThreshold) {
+        setShowNavbar(true);
+      } else {
+        setShowNavbar(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     if (!loading) {
@@ -163,19 +200,6 @@ function App() {
     }
   }, [loading]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const heroSection = document.getElementById('hero-section');
-      const heroBottom = heroSection.getBoundingClientRect().bottom;
-      setShowNavbar(heroBottom <= 0);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   const wrapWithSpan = (text) => {
     return text.split('').map((char, index) => (
       <span
@@ -188,44 +212,89 @@ function App() {
     ));
   };
 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+const toggleMenu = () => {
+  setIsMobileMenuOpen(!isMobileMenuOpen);
+};
+
+const scrollToSection = (sectionId) => {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
+
+
+  
+
   return (
     <>
-      {/* Navbar */}
-      {showNavbar && (
-        <nav className="fixed top-0 left-0 w-full bg-black text-white z-50 p-4">
-          <div className="container mx-auto flex justify-between items-center">
-            <div className="text-xl font-bold">My Portfolio</div>
-            <div className="space-x-4">
-              <a href="#hero-section" className="hover:underline">Home</a>
-              <a href="#about-section" className="hover:underline">About</a>
-              <a href="#projects-section" className="hover:underline">Projects</a>
-              <a href="#contact-section" className="hover:underline">Contact</a>
-            </div>
-          </div>
-        </nav>
-      )}
+<nav className={`fixed top-0 border-b-2 border-[#242425] left-0 w-full text-white z-50 p-4 ${showNavbar ? 'navbar-visible navbar-blur' : 'navbar-hidden'}`}>
+  <div className="container flex justify-between items-center">
+    <div className="text-xl font-bold">My Portfolio</div>
+    <div className="flex space-x-11 md:hidden">
+      <button onClick={() => scrollToSection('hero-section')} className="hover:bg-white hover:bg-opacity-5 hover:text-white rounded-lg text-white space-mono-regular">Home</button>
+      <button onClick={() => scrollToSection('about-section')} className="hover:bg-white hover:bg-opacity-5 hover:text-white rounded-lg text-white space-mono-regular">About</button>
+      <button onClick={() => scrollToSection('projects-section')} className="hover:bg-white hover:bg-opacity-5 hover:text-white rounded-lg text-white space-mono-regular">Projects</button>
+      <a href="mailto:Cristian333ee@gmail.com" className="hover:bg-white hover:bg-opacity-5 hover:text-white rounded-lg text-white space-mono-regular">Contact</a>
+    </div>
+    <div className="hidden md:block ">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 cursor-pointer " onClick={toggleMenu}>
+  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+</svg>
+
+    </div>
+    {/* ... rest of the code ... */}
+  </div>
+
+  {isMobileMenuOpen && (
+  <div className="hidden md:block fixed top-[62p] left-0 w-full bg-black bg-opacity-90 z-50">
+    <div className="flex flex-col items-center py-4">
+      <button onClick={() => { scrollToSection('hero-section'); toggleMenu(); }} className="hover:bg-white hover:bg-opacity-5 hover:text-white rounded-lg text-white space-mono-regular py-2">Home</button>
+      <button onClick={() => { scrollToSection('about-section'); toggleMenu(); }} className="hover:bg-white hover:bg-opacity-5 hover:text-white rounded-lg text-white space-mono-regular py-2">About</button>
+      <button onClick={() => { scrollToSection('projects-section'); toggleMenu(); }} className="hover:bg-white hover:bg-opacity-5 hover:text-white rounded-lg text-white space-mono-regular py-2">Projects</button>
+      <a href="mailto:Cristian333ee@gmail.com" className="hover:bg-white hover:bg-opacity-5 hover:text-white rounded-lg text-white space-mono-regular py-2" onClick={toggleMenu}>Contact</a>
+    </div>
+  </div>
+  )}
+</nav>
+
+
+
+
+
+
+   
+   
 
       {loading && <Loading onAnimationEnd={handleAnimationEnd} />}
       {!loading && (
         <>
-{/* Hero Section */}
-<div className="relative w-screen h-screen overflow-hidden flex items-center justify-center fade-in" id="hero-section">
-  <div className="relative w-full h-auto bg-cover bg-center px-0 py-12" style={{ zIndex: 1 }}>
-    <div className="w-full container border-2 border-red-500 flex flex-row items-center text-white z-10 p-4 justify-center">
-      <div className="flex flex-col items-start justify-center w-full xl:items-center  h-full">
-        <h1 className="text-red-500 animate-in z-10 text-[110px] bubblegum-sans cursor-pointer sm:text-[90px] xs:text-[70px] bounce-effect text-left mb-2">
-          {wrapWithSpan('Hey,')}
-        </h1>
-        <h1 className="text-red-500 z-10 bubblegum-sans bounce-effect cursor-pointer text-[110px] sm:text-[90px] xs:text-[70px]  text-left mb-2">
-          {wrapWithSpan("I'm Cristian")}
-        </h1>
-        <h2 className="text-red-500 z-10 bubblegum-sans bounce-effect cursor-pointer text-[50px] xs:text-[30px] text-left mb-2">
-          {wrapWithSpan('Junior Developer')}
-        </h2>
-        <h3 className="text-white z-10 bubblegum-sans bounce-effect cursor-pointer text-[30px] xs:text-[20px] text-left mb-2">
-          {wrapWithSpan('Cybersecurity / Gateway Student')}
-        </h3>
-        <div className="flex justify-start space-x-4 mt-4 z-10">
+          {/* Hero Section */}
+          <section id="hero-section">
+
+
+
+          <div className="relative w-screen h-screen overflow-hidden flex items-center justify-center fade-in" id="hero-section">
+            <div className="relative w-full h-auto bg-cover bg-center px-0 py-12" style={{ zIndex: 1 }}>
+              <div className="w-full container  flex flex-row items-center text-white z-10 p-4 justify-center">
+                <div className="flex flex-col items-start justify-center w-full xl:items-center h-full">
+                  <Fade triggerOnce={true} duration={3000}>
+                    <h1 className="text-red-500 animate-in z-10 text-[110px] bubblegum-sans cursor-pointer sm:text-[90px] xs:text-[70px] bounce-effect text-left mb-2">
+                      {wrapWithSpan('Hey,')}
+                    </h1>
+                    <h1 className="text-red-500 z-10 bubblegum-sans bounce-effect cursor-pointer text-[110px] sm:text-[90px] xs:text-[70px] text-left mb-2">
+                      {wrapWithSpan("I'm Cristian")}
+                    </h1>
+                    <h2 className="text-red-500 z-10 bubblegum-sans bounce-effect cursor-pointer text-[50px] xs:text-[30px] text-left mb-2">
+                      {wrapWithSpan('Junior Developer')}
+                    </h2>
+                    <h3 className="text-white z-10 bubblegum-sans bounce-effect cursor-pointer text-[30px] xs:text-[20px] text-left mb-2">
+                      {wrapWithSpan('Cybersecurity / Gateway Student')}
+                    </h3>
+                    <div className="flex justify-start space-x-4 mt-4 z-10">
           <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="red" viewBox="0 0 24 24">
             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
           </svg>
@@ -238,20 +307,29 @@ function App() {
             Contact Me
           </a>
         </button>
+                  </Fade>
+                </div>
+                <div className="flex flex-col xl:hidden items-center justify-center w-full  h-full mt-4 ">
+      <Fade triggerOnce={true} duration={3000} ><div className="tagcloud" style={{ cursor: 'pointer ' }}></div>  </Fade>
+        
       </div>
-      <div className="flex flex-col xl:hidden items-center justify-center w-full  h-full mt-4 ">
-        <div className="tagcloud" style={{ cursor: 'pointer ' }}></div>
-      </div>
-    </div>
-  </div>
-</div>
+              </div>
+            </div>
+          </div>
+          </section>
 
           {/* Other Sections */}
-          <div className="relative w-full  h-auto bg-cover flex flex-col bg-center  px-0 py-12" style={{ backgroundColor: "#050816", zIndex: 1 }}>
-      <div className="w-full container flex flex-col md:flex-row items-center text-white z-10">
-        <PersonalProfile />
-      </div>
-    </div>
+          <section id="about-section">
+
+
+          <div className="relative  w-full h-auto bg-cover flex flex-col bg-center px-0 py-12" style={{ backgroundColor: "#050816", zIndex: 1 }} id="about-section">
+            <Fade direction='left' duration={3000} triggerOnce={true}>
+              <div className="w-full container flex flex-col md:flex-row items-center text-white z-10">
+                <PersonalProfile />
+              </div>
+            </Fade>
+          </div>
+          </section>
 
           <div className="relative w-full h-auto bg-cover bg-center px-0 py-12" style={{ backgroundColor: "#050816", zIndex: 1 }}>
             <div className="w-full container flex flex-col items-center z-10">
@@ -259,17 +337,21 @@ function App() {
             </div>
           </div>
 
-          <div className="relative w-full h-auto flex flex-col items-center justify-center" style={{ backgroundColor: "#050816", zIndex: 1 }}>
-            <h1 className="text-white flex justify-center container  text-4xl mb-8 space-mono-regular z-10">Projects</h1>
-            <div className="container flex justify-center md:flex md:flex-col md:justify-center md:items-center gap-11 z-10">
-              <Tilt tiltMaxAngleX={35} tiltMaxAngleY={35} scale={1.05}>
-                <ProjectCard />
-              </Tilt>
-              <Tilt tiltMaxAngleX={35} tiltMaxAngleY={35} scale={1.05}>
-                <ProjectCard2 />
-              </Tilt>
-            </div>
+          <section id="projects-section">
+                <div className="relative w-full h-auto flex flex-col items-center justify-center" id="projects-section" style={{ backgroundColor: "#050816", zIndex: 1 }}>
+            <Fade triggerOnce={true} cascade={true} damping={0.1} className="text-white text-4xl mt-20 mb-4 text-center space-mono-regular z-10">Projects</Fade>
+            <Fade triggerOnce={true} duration={3000}>
+              <div className="container flex justify-center md:flex md:flex-col md:justify-center md:items-center gap-11 z-10"  style={{ paddingBottom: '300px' }}>
+                <Tilt tiltMaxAngleX={35} tiltMaxAngleY={35} scale={1.05}>
+                  <ProjectCard />
+                </Tilt>
+                <Tilt tiltMaxAngleX={35} tiltMaxAngleY={35} scale={1.05}>
+                  <ProjectCard2 />
+                </Tilt>
+              </div>
+            </Fade>
           </div>
+          </section>
         </>
       )}
     </>
