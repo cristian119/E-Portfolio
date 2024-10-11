@@ -4,7 +4,7 @@ export function ProjectCard() {
   return (
     
     <div className="bg-[#111] rounded-xl p-6 shadow-md text-white flex flex-col   items-start w-80">
-    <div className="relative w-full  grid place-items-center mb-4">
+    <div className="relative w-full  grid place-items-center mb-5">
       <img className="w-full h-auto object-cover rounded-lg" src="ecom.png" alt="E-commerce Project" />
       <a href="https://y" target="_blank" rel="noopener noreferrer" className="absolute top-2 right-2 w-8 h-8 bg-[#1A1A1A]  rounded-full flex items-center justify-center">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-white">
