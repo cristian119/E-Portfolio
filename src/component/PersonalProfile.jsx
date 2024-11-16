@@ -71,7 +71,6 @@ export function PersonalProfile() {
           <div className="bg-gradient-to-b from-[#374151] to-[#1F2937] rounded-xl shadow-lg flex justify-center items-center">
             <div className="bg-[#050816] rounded-lg p-6 m-1"> {/* Add margin to inner container */}
               <div className="flex items-center">
-                <img src="/api/placeholder/100/100" alt="Profile" className="w-20 h-20 rounded-full mr-4" />
                 <div>
                   <h3 className="text-xl font-bold space-mono-regular">Cristian Hernandez</h3>
                   <p className="text-gray-300 xs:text-[14px] mt-2 space-mono-regular">Interested in working together? Got a great idea for a project? Let's chat!</p>
