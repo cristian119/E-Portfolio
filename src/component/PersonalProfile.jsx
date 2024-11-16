@@ -14,18 +14,18 @@ export function PersonalProfile() {
                 <h2 className="text-2xl space-mono-regular font-bold">Experience</h2>
               </div>
               <div>
-                <strong className="text-white space-mono-regular">Tycho Industries (2019-2021)</strong>
+                <strong className="text-white space-mono-regular">Class Projects and Skills Development (2023–Present)</strong>
                 <p className="text-gray-300 xs:text-[14px] mt-2">
-                  I started Tycho as a side project at the beginning of the quarantine to help sneaker resellers manage their inventory and payment methods. It slowly grew into a fully featured piece of software. At our peak, we had a team of 7 and serviced almost 4000 customers.
+                Although I don’t have formal work experience yet, I have completed hands-on class projects and personal development efforts as part of my journey to becoming a Cybersecurity Specialist.
                 </p>
                 <strong className="text-white mt-4 space-mono-regular block">Responsibilities</strong>
                 <ul className="list-disc list-inside xs:text-[14px] space-y-2 mt-2 text-gray-300">
-                  <li className="whitespace-normal">Mocked up Tycho’s Electron app UI in Figma then brought it to life with React and Tailwind CSS.</li>
-                  <li className="whitespace-normal">Utilized Node FS modules, IMAP, and Playwright to automate inventory and payment management.</li>
-                  <li className="whitespace-normal">Built the Tycho Tools website and hooked it up to our server, Discord Bot, SendGrid, and Stripe.</li>
-                  <li className="whitespace-normal">Developed an affiliate partner program utilizing Stripe’s API and integrated it into our Discord Bot.</li>
-                  <li className="whitespace-normal">Setup a MySQL database to store user data and customer subscription information.</li>
-                  <li className="whitespace-normal">Wrote licensing and authentication code on our server to ensure only active subscribers had access.</li>
+                  <li className="whitespace-normal">Studied for Cisco CCNA Certification: Gained knowledge in networking fundamentals, routing, and switching protocols.</li>
+                  <li className="whitespace-normal">Designed and developed a responsive website using React and Tailwind CSS, focusing on modern UI/UX principles.</li>
+                  <li className="whitespace-normal">Created a personal portfolio site showcasing my technical skills, using React,tsParticles, and other libraries.</li>
+                  <li className="whitespace-normal">Completed hands-on activities in sensor/actuator integration and understanding IoT concepts.</li>
+                  <li className="whitespace-normal">Conducted basic network configuration and troubleshooting exercises as part of a lab-based environment.</li>
+                  
                 </ul>
               </div>
             </div>
@@ -41,17 +41,25 @@ export function PersonalProfile() {
                 <h2 className="text-2xl space-mono-regular font-bold">Education</h2>
               </div>
               <div>
-                <strong className="text-white space-mono-regular">Bachelor's Degree in Computer Science</strong><br />
-                <p className="text-gray-300">Oregon State University</p>
+              <strong>Gateway Technical College — IT – Cybersecurity Specialist Program </strong>
+                <p className="text-gray-300">SC Johnson STEM Scholar (2024-Present)</p>
               </div>
               <strong className="text-white space-mono-regular mt-4 block">Relevant Courses:</strong>
               <ul className="list-disc list-inside xs:text-[14px] space-y-2 mt-2 text-gray-300">
-                <li>Software Engineering I and II (React, MySQL, Express, Sass)</li>
-                <li>Analysis of Algorithms, Operating Systems (Python)</li>
-                <li>Assembly Language (MASM, Intel x86)</li>
-                <li>Introduction to Databases (MySQL, Postgres)</li>
-                <li>Data Structures (C)</li>
-                <li>Web development (React, CSS, JS)</li>
+                <li>Pursuing foundational coursework in networking, cybersecurity, and computer science as part of a STEM-focused scholarship program.</li>
+                <li>Gaining hands-on experience with IoT concepts, frontend development, and preparation for Cisco CCNA certification.</li>
+                <div className="education-entry">
+  <strong>Planned Transfer to University — Bachelor's in Computer Science (Expected transfer: 2026) </strong>
+  
+  
+  <ul className="list-disc list-inside xs:text-[14px] space-y-2 mt-2 text-gray-300">
+    <li>Intending to continue studies in computer science, specializing in cybersecurity, networking, or software development.</li>
+    <li>Committed to building a solid foundation for a career as a network engineer or cybersecurity specialist.</li>
+  </ul>
+
+ 
+</div>
+
               </ul>
             </div>
           </div>

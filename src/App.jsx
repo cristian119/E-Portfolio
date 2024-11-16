@@ -346,7 +346,6 @@ const scrollToSection = (sectionId) => {
             <Fade triggerOnce={true} duration={3000}>
               <div className="container flex justify-center md:flex md:flex-col md:justify-center md:items-center gap-11 z-10"  style={{ paddingBottom: '300px' }}>
                 <Tilt tiltMaxAngleX={35} tiltMaxAngleY={15} scale={1.05}>
-                  <ProjectCard />
                 </Tilt>
                 <Tilt tiltMaxAngleX={35} tiltMaxAngleY={15} scale={1.05}>
                   <ProjectCard2 />
