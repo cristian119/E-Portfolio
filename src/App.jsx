@@ -280,9 +280,7 @@ const scrollToSection = (sectionId) => {
                     <h1 className="text-red-500 z-10 bubblegum-sans bounce-effect cursor-pointer text-[110px] sm:text-[90px] xs:text-[70px] text-left mb-2">
                       {wrapWithSpan("I'm Cristian")}
                     </h1>
-                    <h2 className="text-red-500 z-10 bubblegum-sans bounce-effect cursor-pointer text-[50px] xs:text-[30px] text-left mb-2">
-                      {wrapWithSpan('Junior Developer')}
-                    </h2>
+                    
                     <h3 className="text-white z-10 bubblegum-sans bounce-effect cursor-pointer text-[30px] xs:text-[20px] text-left mb-2">
                       {wrapWithSpan('Cybersecurity / Gateway Student')}
                     </h3>
