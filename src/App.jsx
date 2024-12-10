@@ -5,7 +5,8 @@ import { Tilt } from 'react-next-tilt';
 import { ProjectCard, ProjectCard2 } from './component/ProjectCard';
 import { PersonalProfile } from './component/PersonalProfile';
 import { TechStack } from './component/TechStack';
-import { Fade,Slide } from "react-awesome-reveal";
+import { Fade, } from "react-awesome-reveal";
+
 
 
 
@@ -172,9 +173,9 @@ function App() {
       // Initialize TagCloud
       const container = '.tagcloud';
       const texts = [
-        'HTML', 'CSS', 'JavaScript', 'React', 'CSS Framework', 'Git', 'CompTIA Security+ (in progress)', 'CCNA (in progress)',
-        'HTML', 'CSS', 'JavaScript', 'React', 'CSS Framework', 'Git', 'CompTIA Security+ (in progress)', 'CCNA (in progress)',
-        'HTML', 'CSS', 'JavaScript', 'React', 'CSS Framework', 'Git', 'CompTIA Security+ (in progress)', 'CCNA (in progress)',
+        'HTML', 'CSS', 'JavaScript', 'React', 'CSS Framework', 'Git', 'CompTIA Security+', 'CCNA ',
+        'HTML', 'CSS', 'JavaScript', 'React', 'CSS Framework', 'Git', 'CompTIA Security+ ', 'CCNA ',
+        'HTML', 'CSS', 'JavaScript', 'React', 'CSS Framework', 'Git', 'CompTIA Security+ ', 'CCNA ',
       ];
       
       const options = {
@@ -233,8 +234,8 @@ const scrollToSection = (sectionId) => {
       <a href="mailto:Cristian333ee@gmail.com" className="hover:bg-white hover:bg-opacity-5 hover:text-white rounded-lg text-white space-mono-regular">Contact</a>
     </div>
     <div className="hidden md:block ">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 cursor-pointer " onClick={toggleMenu}>
-  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6 cursor-pointer " onClick={toggleMenu}>
+  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
 </svg>
 
     </div>
@@ -270,7 +271,7 @@ const scrollToSection = (sectionId) => {
 
 
           <div className="relative w-screen h-screen overflow-hidden flex items-center justify-center fade-in" id="hero-section">
-            <div className="relative w-full h-auto bg-cover bg-center px-0 py-12" style={{ zIndex: 1 }}>
+            <div className="relative w-full h-auto bg-cover bg-center px-0 py-12" style={{ zIndex: 3 }}>
               <div className="w-full container  flex flex-row items-center text-white z-10 p-4 justify-center">
                 <div className="flex flex-col items-start justify-center w-full xl:items-center h-full">
                   <Fade triggerOnce={true} duration={3000}>
@@ -317,7 +318,7 @@ const scrollToSection = (sectionId) => {
           <section id="about-section">
 
 
-          <div className="relative  w-full h-auto bg-cover flex flex-col bg-center px-0 py-12" style={{ backgroundColor: "#050816", zIndex: 1 }} id="about-section">
+          <div className="relative  w-full h-auto bg-cover flex flex-col bg-center px-0 py-12" style={{ backgroundColor: "#050816", zIndex: 3 }} id="about-section">
             <Fade direction='left' duration={3000} triggerOnce={true}>
               <div className="w-full container flex flex-col md:flex-row items-center text-white z-10">
                 <PersonalProfile />
@@ -326,32 +327,31 @@ const scrollToSection = (sectionId) => {
           </div>
           </section>
 
-          <div className="relative w-full h-auto bg-cover bg-center px-0 py-12" style={{ backgroundColor: "#050816", zIndex: 1 }}>
+          <div className="relative w-full h-auto bg-cover bg-center px-0 py-12" style={{ backgroundColor: "#050816", zIndex: 3 }}>
             <div className="w-full container flex flex-col items-center z-10">
               <TechStack />
             </div>
           </div>
 
-          <section id="projects-section">
-                <div className="relative w-full h-auto flex flex-col items-center justify-center" id="projects-section" style={{ backgroundColor: "#050816", zIndex: 1 }}>
-<Fade triggerOnce={true} duration={3000}>
-  <p className="text-white text-4xl mt-20 mb-4 text-center space-mono-regular z-10">
-    <Fade cascade={true} damping={0.1} triggerOnce={true}>
-      Projects
+         <section id="projects-section">
+  <div className="relative w-full h-auto flex flex-col items-center justify-center" id="projects-section" style={{ backgroundColor: "#050816", zIndex: 3 }}>
+    <Fade triggerOnce={true} duration={3000}>
+      <div className="text-white text-4xl mt-20 mb-4 text-center space-mono-regular z-10">
+        <Fade cascade={true} damping={0.1} triggerOnce={true}>
+          Projects
+        </Fade>
+      </div>
     </Fade>
-  </p>
-</Fade>
-            <Fade triggerOnce={true} duration={3000}>
-              <div className="container flex justify-center md:flex md:flex-col md:justify-center md:items-center gap-11 z-10"  style={{ paddingBottom: '300px' }}>
-                <Tilt tiltMaxAngleX={35} tiltMaxAngleY={15} scale={1.05}>
-                </Tilt>
-                <Tilt tiltMaxAngleX={35} tiltMaxAngleY={15} scale={1.05}>
-                  <ProjectCard2 />
-                </Tilt>
-              </div>
-            </Fade>
-          </div>
-          </section>
+    <Fade triggerOnce={true} duration={3000}>
+      <div className="container flex justify-center md:flex md:flex-col md:justify-center md:items-center gap-11 z-10" style={{ paddingBottom: '300px' }}>
+        <Tilt tiltMaxAngleX={35} tiltMaxAngleY={15} scale={1.05}>
+          <ProjectCard2 />
+        </Tilt>
+      </div>
+    </Fade>
+  </div>
+</section>
+
         </>
       )}
     </>
