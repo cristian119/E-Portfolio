@@ -14,7 +14,7 @@ export function PersonalProfile() {
                 <h2 className="text-2xl space-mono-regular font-bold">Experience</h2>
               </div>
               <div>
-                <strong className="text-white space-mono-regular">Class Projects and Skills Development (2023–Present)</strong>
+                <strong className="text-white space-mono-regular">Class Projects and Skills Development (2024–Present)</strong>
                 <p className="text-gray-300 xs:text-[14px] mt-2">
                 Although I don’t have formal work experience yet, I have completed hands-on class projects and personal development efforts as part of my journey to becoming a Cybersecurity Specialist.
                 </p>
@@ -84,19 +84,6 @@ export function PersonalProfile() {
 
             </div>
           </div>
-
-          {/* Download Resume Button */}
-        <button 
-  onClick={() => window.open('/Resume.pdf', '_blank')}
-  className="bg-[#1A202C] text-white hover:bg-[#2D3748] font-bold py-2 px-4 space-mono-regular rounded-lg w-full shadow-lg"
->
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6 justify-center items-center inline-block mr-1">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-  </svg>
-  Resume/CV
-</button>
-
-
           {/* Social Links */}
           <div className="flex justify-center mt-4">
             <div className="flex space-x-4">
