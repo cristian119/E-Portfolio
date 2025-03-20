@@ -7,9 +7,9 @@ import { TagCloud } from 'TagCloud'
  // Initialize TagCloud
  const container = '.tagcloud';
  const texts = [
-   'HTML', 'CSS', 'JavaScript', 'React', 'CSS Framework', 'Git', 'CompTIA Security+ (in progress)', 'CCNA (in progress)',
-   'HTML', 'CSS', 'JavaScript', 'React', 'CSS Framework', 'Git', 'CompTIA Security+ (in progress)', 'CCNA (in progress)',
-   'HTML', 'CSS', 'JavaScript', 'React', 'CSS Framework', 'Git', 'CompTIA Security+ (in progress)', 'CCNA (in progress)',
+   'ITIL Certification', 'CyberArk Defender', 'CompTIA A+', 'MD-102', 'CompTIA Security+', 'SC-300',
+    'ITIL Certification', 'CyberArk Defender', 'CompTIA A+', 'MD-102', 'CompTIA Security+', 'SC-300',
+    'ITIL Certification', 'CyberArk Defender', 'CompTIA A+', 'MD-102', 'CompTIA Security+', 'SC-300',
  ];
  
  const options = {
